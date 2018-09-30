@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -24,6 +25,20 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tUa-rW-O6i" id="lCk-wu-XyI">
                                     <rect key="frame" x="0.0" y="0.0" width="335" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvI-N2-jHs">
+                                            <rect key="frame" x="16" y="11" width="311" height="22"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="vvI-N2-jHs" firstAttribute="leading" secondItem="lCk-wu-XyI" secondAttribute="leadingMargin" id="GqG-Cp-NhC"/>
+                                        <constraint firstItem="vvI-N2-jHs" firstAttribute="top" secondItem="lCk-wu-XyI" secondAttribute="topMargin" id="Rpe-hU-wH7"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="vvI-N2-jHs" secondAttribute="trailing" id="afS-7x-pOF"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vvI-N2-jHs" secondAttribute="bottom" id="tOB-ux-brA"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
