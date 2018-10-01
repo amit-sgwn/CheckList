@@ -59,6 +59,17 @@ class CheckListViewController: UITableViewController {
         }
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            viewModel.deleteRow(indexPath)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     //MARK:- Actions
     
     @IBAction func addItem(_ sender: Any) {

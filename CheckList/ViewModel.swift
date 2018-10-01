@@ -36,4 +36,9 @@ class ViewModel {
     func addNewItem() -> CheckListItem {
         return CheckListItem("New Item" , true)
     }
+    
+    func deleteRow(_ index : IndexPath) -> CheckListItem {
+        let indexToBeRemoved = index.row
+        return checkList.remove(at: indexToBeRemoved)
+    }
 }
