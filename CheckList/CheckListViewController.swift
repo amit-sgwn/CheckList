@@ -10,12 +10,26 @@ import UIKit
 
 class CheckListViewController: UITableViewController {
 
-    
     var checkList : [CheckListItem] = []
     
+
+    //MARK:- Life cycle methods
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setCheckListData()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationItem.title = "TO-Do List"
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    //MARH:- Utility Method
     
     func setCheckListData() {
-        for x in 0..<1000 {
+        for x in 0..<10 {
             var text : String!
             if x % 5 == 0 {
                 text = "Take the jog"
@@ -32,18 +46,11 @@ class CheckListViewController: UITableViewController {
             self.checkList.append(checkList)
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setCheckListData()
-        // Do any additional setup after loading the view, typically from a nib.
+    
+    func addNewItem() -> CheckListItem {
+        return CheckListItem("New Item" , true)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    //MARK:- Delegate methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.checkList.count
     }
@@ -75,6 +82,16 @@ class CheckListViewController: UITableViewController {
         }
     }
     
+    //MARK:- Actions
+    
+    @IBAction func addItem(_ sender: Any) {
+        print("Item added")
+        let index = checkList.count
+        checkList.append(addNewItem())
+        let indexPath = IndexPath(item: index , section: 0)
+        tableView.insertRows(at: [indexPath], with: .none)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
     
 }
 

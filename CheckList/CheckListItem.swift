@@ -16,4 +16,5 @@ struct CheckListItem {
         self.text = text
         self.isSelected = isSelected
     }
+
 }
